@@ -10,7 +10,7 @@ on drop:
         message "&a현위치에 인형을 설치합니다. &r주인: %player%" to player
         message "&e회수하려면 우클릭" to player
         spawn armor stand at player
-        set gravity of last spawned armor stand to false
+        #set gravity of last spawned armor stand to false
         last spawned armor stand.setVisible(false)
         set last spawned armor stand's helmet to event-item
         add player's uuid to scoreboard tags of last spawned armor stand
@@ -21,6 +21,8 @@ on drop:
 
 on right click on armor stand:
     if scoreboard tags of clicked entity exist:
+        cancel event
+
         if player is op:
             drop clicked entity's helmet
             kill clicked entity
